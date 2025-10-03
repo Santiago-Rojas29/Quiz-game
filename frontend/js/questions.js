@@ -140,7 +140,7 @@ const QUESTION_DATA = {
             opts: ['Neither', 'All', 'Some', 'Most'], 
             a: 0, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?test,answers',
+            img: '../images/INTERROGACION.jfif',
             category: 'general-culture'
         },
         { 
@@ -148,7 +148,7 @@ const QUESTION_DATA = {
             opts: ['Barely/Almost not', 'Frequently', 'Always', 'Completely'], 
             a: 0, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?barely,little',
+            img: '../images/scarcely.jfif',
             category: 'general-culture'
         },
         { 
@@ -156,7 +156,7 @@ const QUESTION_DATA = {
             opts: ['Not', 'Only', 'Hardly', 'Never'], 
             a: 1, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?dark,inversion',
+            img: '../images/nigh.jfif',
             category: 'general-culture'
         },
     ],
@@ -167,7 +167,7 @@ const QUESTION_DATA = {
             opts: ['went', 'go', 'goes', 'going'], 
             a: 0, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?english,lesson',
+            img: '../images/vieja.jfif',
             category: 'english-grammar'
         },
         { 
@@ -175,7 +175,7 @@ const QUESTION_DATA = {
             opts: ['What', 'Who', 'When', 'Where'], 
             a: 0, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?question,mark',
+            img: '../images/INTERROGACION.jfif',
             category: 'english-grammar'
         },
         { 
@@ -183,7 +183,7 @@ const QUESTION_DATA = {
             opts: ['feet', 'foots', 'footies', 'feets'], 
             a: 0, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?feet,shoes',
+            img: '../images/foot.jfif',
             category: 'english-grammar'
         },
         { 
@@ -191,7 +191,7 @@ const QUESTION_DATA = {
             opts: ['on', 'at', 'in', 'to'], 
             a: 0, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?table,book',
+            img: '../images/libro.jfif',
             category: 'english-grammar'
         },
         { 
@@ -199,7 +199,7 @@ const QUESTION_DATA = {
             opts: ['haven\'t', 'hasn\'t', 'don\'t', 'didn\'t'], 
             a: 0, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?homework,desk',
+            img: '../images/tarea.jfif',
             category: 'english-grammar'
         },
         { 
@@ -207,7 +207,7 @@ const QUESTION_DATA = {
             opts: ['To ask for permission or make a suggestion', 'To express obligation', 'To talk about future plans', 'To express certainty'], 
             a: 0, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?permission,suggestion',
+            img: '../images/INTERROGACION.jfif',
             category: 'english-grammar'
         },
         { 
@@ -215,15 +215,15 @@ const QUESTION_DATA = {
             opts: ['would have', 'would', 'will have', 'had'], 
             a: 0, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?help,knowledge',
+            img: '../images/ayudado.jfif',
             category: 'english-grammar'
         },
         { 
-            q: 'What type of word is "Although"?', 
+            q: '    "?', 
             opts: ['Subordinating Conjunction', 'Adverb', 'Preposition', 'Interjection'], 
             a: 0, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?connecting,words',
+            img: '../images/lloviendo.jfif',
             category: 'english-grammar'
         },
         { 
@@ -231,7 +231,7 @@ const QUESTION_DATA = {
             opts: ['Verb + preposition/adverb that changes the meaning', 'Verbs conjugated in the past tense', 'Auxiliary verbs', 'Irregular verbs'], 
             a: 0, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?combination,language',
+            img: '../images/INTERROGACION.jfif',
             category: 'english-grammar'
         },
         { 
@@ -239,7 +239,7 @@ const QUESTION_DATA = {
             opts: ['was written', 'wrote', 'has write', 'is writing'], 
             a: 0, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?report,manager',
+            img: '../images/INTERROGACION.jfif',
             category: 'english-grammar'
         },
 
@@ -249,7 +249,7 @@ const QUESTION_DATA = {
             opts: ['a', 'an', 'some', 'any'], 
             a: 2, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?shoes,buy',
+            img: '../images/zapatos.jfif',
             category: 'english-grammar'
         },
         { 
@@ -257,7 +257,7 @@ const QUESTION_DATA = {
             opts: ['She is reading a book now', 'She read a book yesterday', 'She reads a book every day', 'She will read a book later'], 
             a: 0, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?reading,girl',
+            img: '../images/INTERROGACION.jfif',
             category: 'english-grammar'
         },
         { 
@@ -265,7 +265,7 @@ const QUESTION_DATA = {
             opts: ['your', 'you', 'yours', 'mine'], 
             a: 2, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?personal,belongings',
+            img: '../images/INTERROGACION.jfif',
             category: 'english-grammar'
         },
         { 
@@ -273,7 +273,7 @@ const QUESTION_DATA = {
             opts: ['The', 'man', 'drove', 'quickly'], 
             a: 3, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?car,speed',
+            img: '../images/espera.jfif',
             category: 'english-grammar'
         },
         { 
@@ -281,7 +281,7 @@ const QUESTION_DATA = {
             opts: ['If I had money, I would buy a house', 'If I have money, I will buy a house', 'If I money, I buy a house', 'If I had money, I will buy a house'], 
             a: 0, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?dream,house',
+            img: '../images/INTERROGACION.jfif',
             category: 'english-grammar'
         },
         { 
@@ -289,7 +289,7 @@ const QUESTION_DATA = {
             opts: ['to smoke', 'smoking', 'smoke', 'smoked'], 
             a: 1, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?stop,sign',
+            img: '../images/smoking.jfif',
             category: 'english-grammar'
         },
         { 
@@ -297,7 +297,7 @@ const QUESTION_DATA = {
             opts: ['You must wear a helmet', 'You can wear a helmet', 'You should wear a helmet', 'You might wear a helmet'], 
             a: 0, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?safety,helmet',
+            img: '../images/INTERROGACION.jfif',
             category: 'english-grammar'
         },
         { 
@@ -305,7 +305,7 @@ const QUESTION_DATA = {
             opts: ['who', 'whose', 'which', 'where'], 
             a: 3, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?city,buildings',
+            img: '../images/where.jfif',
             category: 'english-grammar'
         },
         { 
@@ -313,7 +313,7 @@ const QUESTION_DATA = {
             opts: ['up', 'off', 'down', 'out'], 
             a: 2, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?volume,music',
+            img: '../images/INTERROGACION.jfif',
             category: 'english-grammar'
         },
         { 
@@ -321,7 +321,7 @@ const QUESTION_DATA = {
             opts: ['He is', 'more taller', 'than', 'his brother'], 
             a: 1, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?error,correction',
+            img: '../images/INTERROGACION.jfif',
             category: 'english-grammar'
         },
     ],
@@ -332,7 +332,7 @@ const QUESTION_DATA = {
             opts: ['Bogotá', 'Medellín', 'Cali', 'Barranquilla'], 
             a: 0, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?bogota,colombia',
+            img: '../images/medellin.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -340,7 +340,7 @@ const QUESTION_DATA = {
             opts: ['Coffee', 'Flowers', 'Oil', 'Banana'], 
             a: 0, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?colombian,coffee',
+            img: '../images/cafe.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -348,7 +348,7 @@ const QUESTION_DATA = {
             opts: ['Wax Palm', 'Ceiba', 'Oak', 'Rubber'], 
             a: 0, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?wax,palm',
+            img: '../images/colombia.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -356,15 +356,15 @@ const QUESTION_DATA = {
             opts: ['Caribbean Sea', 'Pacific Ocean', 'Sea of Cortés', 'Atlantic Ocean'], 
             a: 0, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?caribbean,sea,colombia',
+            img: '../images/oceano.jfif',
             category: 'colombian-culture'
         },
         { 
             q: 'Which region of Colombia is known for the Vallenato Legend Festival?', 
-            opts: ['Caribbean Region (Valledupar)', 'Andean Region', 'Pacific Region', 'Orinoquía'], 
+            opts: ['Caribbean Region', 'Andean Region', 'Pacific Region', 'Orinoquía'], 
             a: 0, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?vallenato,festival',
+            img: '../images/vallenato.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -372,7 +372,7 @@ const QUESTION_DATA = {
             opts: ['Simón Bolívar', 'Antonio Nariño', 'Francisco de Paula Santander', 'Camilo Torres'], 
             a: 0, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?simon,bolivar,statue',
+            img: '../images/simon.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -380,15 +380,7 @@ const QUESTION_DATA = {
             opts: ['Vaupés', 'Guainía', 'Putumayo', 'Casanare'], 
             a: 3, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?amazon,river,jungle',
-            category: 'colombian-culture'
-        },
-        { 
-            q: 'In which year was the current peace agreement between the government and the FARC signed?', 
-            opts: ['2016', '2010', '2018', '2002'], 
-            a: 0, 
-            diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?peace,handshake',
+            img: '../images/casa.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -396,7 +388,7 @@ const QUESTION_DATA = {
             opts: ['Pico Cristóbal Colón', 'Nevado del Huila', 'Sierra Nevada de Santa Marta', 'Pico Simón Bolívar'], 
             a: 0, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?sierra,nevada,mountain',
+            img: '../images/pico.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -404,17 +396,17 @@ const QUESTION_DATA = {
             opts: ['1533', '1499', '1510', '1560'], 
             a: 0, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?cartagena,wall',
+            img: '../images/cartagena.jfif',
             category: 'colombian-culture'
         },
         
         // Additional Colombian Culture Questions
         { 
             q: 'What is the region where the dish Ajiaco is most typical?', 
-            opts: ['Caribbean', 'Pacific', 'Andean (Cundiboyacense Plateau)', 'Orinoquía'], 
+            opts: ['Caribbean', 'Pacific', 'Andina', 'Orinoquía'], 
             a: 2, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?ajiaco,soup',
+            img: '../images/ajiaco.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -422,7 +414,7 @@ const QUESTION_DATA = {
             opts: ['Fernando Botero', 'Alejandro Obregón', 'Doris Salcedo', 'Omar Rayo'], 
             a: 0, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?botero,sculpture',
+            img: '../images/botero.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -430,7 +422,7 @@ const QUESTION_DATA = {
             opts: ['Medellín', 'Barranquilla', 'Cali', 'Cartagena'], 
             a: 2, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?cali,salsa',
+            img: '../images/salsa.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -438,23 +430,23 @@ const QUESTION_DATA = {
             opts: ['Río Cauca', 'Río Atrato', 'Río Magdalena', 'Río Amazonas'], 
             a: 2, 
             diff: 'easy', 
-            img: 'https://source.unsplash.com/800x450/?magdalena,river',
+            img: '../images/rio.jfif',
             category: 'colombian-culture'
         },
         { 
             q: 'What is the name of the traditional Christmas candle lighting celebration held in December?', 
-            opts: ['Noche de Velitas (Día de las Velitas)', 'La Alborada', 'Carnaval de Negros y Blancos', 'Feria de Cali'], 
+            opts: ['Noche de Velitas', 'La Alborada', 'Carnaval de Negros y Blancos', 'Feria de Cali'], 
             a: 0, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?candles,velitas',
+            img: '../images/didi.jfif',
             category: 'colombian-culture'
         },
         { 
             q: 'What is the Colombian term for the agricultural region where coffee is mainly grown?', 
-            opts: ['Páramo', 'Llano', 'Eje Cafetero', 'Amazonía'], 
+            opts: ['Páramo', 'Llano', 'Andina', 'Amazonía'], 
             a: 2, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?coffee,plantations',
+            img: '../images/INTERROGACION.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -462,7 +454,7 @@ const QUESTION_DATA = {
             opts: ['Bocadillo', 'Arequipe', 'Manjar Blanco', 'Melao'], 
             a: 1, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?dulce,milk',
+            img: '../images/INTERROGACION.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -470,7 +462,7 @@ const QUESTION_DATA = {
             opts: ['Carnaval de Barranquilla', 'Feria de Manizales', 'Carnaval de Negros y Blancos', 'Festival Iberoamericano de Teatro'], 
             a: 2, 
             diff: 'medium', 
-            img: 'https://source.unsplash.com/800x450/?pasto,festival',
+            img: '../images/INTERROGACION.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -478,7 +470,7 @@ const QUESTION_DATA = {
             opts: ['Spain and France', 'Spain and Portugal', 'Portugal and England', 'Spain and England'], 
             a: 1, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?old,map,treaty',
+            img: '../images/INTERROGACION.jfif',
             category: 'colombian-culture'
         },
         { 
@@ -486,7 +478,7 @@ const QUESTION_DATA = {
             opts: ['San Agustín', 'Tayrona', 'Quimbaya', 'Muisca'], 
             a: 3, 
             diff: 'hard', 
-            img: 'https://source.unsplash.com/800x450/?gold,museum',
+            img: '../images/INTERROGACION.jfif',
             category: 'colombian-culture'
         },
     ],
