@@ -3,7 +3,7 @@
 // ====================================================================================
 
 // CAMBIA el puerto a 10000
-var API_BASE_URL = "http://localhost:10000";
+var API_BASE_URL = "https://quiz-game-1k5m.onrender.com";
 
 const MODE_IDS = {
     'general-culture': 1,
