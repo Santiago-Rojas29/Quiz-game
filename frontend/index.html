@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Immersive Quiz - Culture and Grammar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="app">
+        <div class="shell">
+
+            <!-- Start Screen -->
+            <div id="start-screen" class="view active">
+                <h1>Welcome to the Immersive Quiz 🧠</h1>
+                <p>
+                    This is a general knowledge quiz system designed to be used in virtual reality environments or devices with an emphasis on a dark theme (like Oculus glasses), minimizing eye strain. Our goal is to measure and improve your knowledge in key areas like General Culture, English Grammar, and Local Colombian Culture, offering a competitive experience through the ranking.
+                </p>
+                <div class="controls">
+                    <button id="start-quiz-btn" class="btn btn-primary">Start Game</button>
+                    <button id="view-help-btn" class="btn btn-secondary">How It Works</button>
+                </div>
+            </div>
+
+            <!-- Mode Selection -->
+            <div id="mode-selection" class="view">
+                <h2>Select a Challenge Level</h2>
+                <div class="mode-grid">
+                    <div class="mode-card" data-mode="general-culture">
+                        <span style="font-size: 30px;">🌍</span>
+                        <h3>Randoms</h3>
+                        <p>Varied questions on Interrogative Words, Culture General and Ask Questions. <br> <strong>Level 1</strong></p>
+                    </div>
+                    <div class="mode-card" data-mode="english-grammar">
+                        <span style="font-size: 30px;">🇬🇧</span>
+                        <h3>English: Grammar</h3>
+                        <p>Measure your level in the structure and use of the language. <br> <strong>Level 2</strong></p>
+                    </div>
+                    <div class="mode-card" data-mode="colombian-culture">
+                        <span style="font-size: 30px;">🇨🇴</span>
+                        <h3>Colombian Culture</h3>
+                        <p>Knowledge about Colombian geography, history, and traditions. <br> <strong>Level 3</strong></p>
+                    </div>
+                </div>
+                <div class="controls" style="margin-top: 30px;">
+                    <button id="view-ranking-btn" class="btn btn-secondary">🏆 View Player Ranking</button>
+                    <button id="logout-btn" class="btn btn-secondary">🚪 Logout (Register New User)</button>
+                </div>
+            </div>
+
+            <!-- Registration Screen -->
+            <div id="registration-screen" class="view">
+                <h2>👋 Hello! First, identify yourself.</h2>
+                <label for="player-name-input" style="display: block; margin-bottom: 10px; color: var(--neon-green);">Enter your name or public alias (max. 20 characters)</label>
+                <input id="player-name-input" type="text" placeholder="Your Name..." maxlength="20">
+                <p id="name-error" style="color: var(--error-color); font-size: 14px; margin-top: 10px; display: none;">Please enter a name!</p>
+                <div class="controls">
+                    <button id="register-name-btn" class="btn btn-primary">Continue</button>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="view">
+                <div id="countdown-overlay" class="countdown-overlay">
+                    <div id="countdown-number" class="countdown-number">3</div>
+                </div>
+                
+                <div class="quiz-layout">
+                    <div class="question-panel">
+                        <img id="q-img" class="q-img" src="" alt="Question Image">
+                        <h2 id="q-text">Test Question</h2>
+                        <div id="difficulty-selection" style="margin-bottom: 15px;"></div>
+                        <div id="answers-grid" class="answers-grid"></div>
+                        <p id="feedback-message" style="min-height: 24px; margin-top: 15px; font-weight: 600;"></p>
+                    </div>
+
+                    <div class="info-panel">
+                        <div>
+                            <strong>Player:</strong> <span id="player-label-quiz">...</span>
+                        </div>
+                        <div>
+                            <strong>Mode:</strong> <span id="mode-label-quiz">...</span>
+                        </div>
+                        <div>
+                            <strong>Score:</strong> <span id="score-label-quiz" style="color: var(--neon-green);">0</span>
+                        </div>
+                        <div>
+                            <strong>Time:</strong> <span id="time-label-quiz">00:00</span>
+                        </div>
+                        <div style="text-align: center;">
+                            Question <strong id="cur-q">0</strong> / <strong id="total-q">0</strong>
+                        </div>
+                        <div class="controls" style="flex-direction: column; gap: 10px;">
+                            <button id="next-btn" class="btn btn-primary" disabled>Next Question</button>
+                            <button id="quit-quiz-btn" class="btn btn-secondary">End Game</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="game-over-screen" class="view">
+                <div class="result-box">
+                    <h3 id="result-message">Congratulations!</h3>
+                    <p style="color: var(--text-secondary); font-size: 16px;">Your performance in the <span id="final-mode-label"></span> mode</p>
+
+                    <div class="result-detail">
+                        <div>Score<strong id="final-score-label">0</strong></div>
+                        <div>Time<strong id="final-time-label">00:00</strong></div>
+                        <div>Local Ranking<strong id="final-rank-label">N/A</strong></div>
+                    </div>
+
+                    <div class="controls">
+                        <button id="save-score-btn" class="btn btn-primary">Save Score</button>
+                        <button id="play-again-btn" class="btn btn-secondary">Back to Modes</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Leaderboard View -->
+            <div id="leaderboard-view" class="view">
+                <h2 id="ranking-title">🏆 Global Ranking</h2>
+                <div class="lb-list" id="global-lb-list"></div>
+                <div class="controls" style="margin-top: 20px;">
+                    <button id="back-to-modes-btn" class="btn btn-secondary">Back to Mode Selection</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script src="js/utils.js"></script>
+<script src="js/questions.js"></script>
+<script src="js/leaderboard.js"></script>
+<script src="js/game.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
