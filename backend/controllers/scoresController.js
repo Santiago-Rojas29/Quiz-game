@@ -1,4 +1,3 @@
-const Score = require('../models/scoreModel');
 
 const scoresController = {
     saveScore: (req, res) => {

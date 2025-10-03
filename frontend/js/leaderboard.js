@@ -2,7 +2,7 @@
 //                                  LEADERBOARD SYSTEM (API)
 // ====================================================================================
 
-// CAMBIA el puerto a 10000
+// URL de producción - cambiar por tu URL de Render
 var API_BASE_URL = "https://quiz-game-1k5m.onrender.com";
 
 const MODE_IDS = {
@@ -20,7 +20,9 @@ const MODE_NAMES = {
 async function savePlayerScore(mode, name, pts, time) {
     try {
         const modeId = MODE_IDS[mode];
-        const response = await fetch(`${API_BASE_URL}/api/scores/save`, { // AÑADÍ /api
+        console.log('💾 Saving score to database:', { mode, name, pts, time });
+        
+        const response = await fetch(`${API_BASE_URL}/api/scores/save`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,63 +35,39 @@ async function savePlayerScore(mode, name, pts, time) {
             })
         });
 
-        if (!response.ok) throw new Error('Network response was not ok');
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP ${response.status}: ${errorText}`);
+        }
         
         const result = await response.json();
         if (result.success) {
-            console.log('Score saved to database');
+            console.log('✅ Score saved to database');
             return true;
         } else {
-            console.error('Error saving score:', result.error);
+            console.error('❌ Error saving score:', result.error);
             return false;
         }
     } catch (error) {
-        console.error('Error saving score to API:', error);
-        // Fallback a localStorage
-        return saveToLocalStorage(mode, name, pts, time);
-    }
-}
-
-function saveToLocalStorage(mode, name, pts, time) {
-    try {
-        const key = `scores_${mode}`;
-        const existing = JSON.parse(localStorage.getItem(key) || '[]');
-        
-        existing.push({
-            player_name: name,
-            score: pts,
-            time_seconds: time,
-            date: new Date().toISOString()
-        });
-        
-        // Ordenar por score (descendente) y tiempo (ascendente)
-        existing.sort((a, b) => {
-            if (b.score !== a.score) return b.score - a.score;
-            return a.time_seconds - b.time_seconds;
-        });
-        
-        // Mantener solo top 10
-        const topScores = existing.slice(0, 10);
-        localStorage.setItem(key, JSON.stringify(topScores));
-        
-        return true;
-    } catch (error) {
-        console.error('Error saving to localStorage:', error);
+        console.error('❌ Error saving score to API:', error);
+        // ❌ NO fallback a localStorage
         return false;
     }
 }
 
-
+// Función para cargar scores por categoría - SOLO base de datos
 async function loadScoresByMode(mode) {
     try {
         const modeId = MODE_IDS[mode];
+        console.log(`📊 Loading scores for ${mode} (modeId: ${modeId})`);
+        
         const response = await fetch(`${API_BASE_URL}/api/scores/mode/${modeId}`);
         
         if (response.ok) {
             const result = await response.json();
-            console.log(`📊 Scores loaded for ${mode}:`, result.scores?.length || 0);
+            console.log(`✅ Scores loaded from API:`, result.scores?.length || 0);
             
-            // ✅ ORDENAR: Primero por score (desc), luego por tiempo (asc)
+            // Ordenar por score (descendente) y tiempo (ascendente)
             const sortedScores = (result.scores || []).sort((a, b) => {
                 if (b.score !== a.score) return b.score - a.score;
                 return a.time_seconds - b.time_seconds;
@@ -97,20 +75,12 @@ async function loadScoresByMode(mode) {
             
             return sortedScores;
         } else {
-            console.log(`📊 Using localStorage for ${mode}`);
-            // Fallback a localStorage
-            const key = `scores_${mode}`;
-            const localScores = JSON.parse(localStorage.getItem(key) || '[]');
-            console.log(`📊 Local scores for ${mode}:`, localScores.length);
-            return localScores;
+            console.error('❌ API response not OK:', response.status);
+            return []; // ❌ NO fallback a localStorage
         }
     } catch (error) {
-        console.error('Error loading scores from API:', error);
-        console.log(`📊 Fallback to localStorage for ${mode}`);
-        // Fallback a localStorage
-        const key = `scores_${mode}`;
-        const localScores = JSON.parse(localStorage.getItem(key) || '[]');
-        return localScores;
+        console.error('❌ Error loading scores from API:', error);
+        return []; // ❌ NO fallback a localStorage
     }
 }
 
@@ -118,14 +88,8 @@ async function getPlayerRank(mode, playerName, score, time) {
     try {
         const modeId = MODE_IDS[mode] || 1;
         
-        // ✅ DEBUG: Ver qué datos se envían
-        console.log('📤 Sending rank request:', {
-            player_name: playerName,
-            game_mode_id: modeId,
-            score: score,
-            time_seconds: time
-        });
-
+        console.log('📤 Getting rank for:', { playerName, score, time });
+        
         const response = await fetch(`${API_BASE_URL}/api/scores/rank`, {
             method: 'POST',
             headers: {
@@ -139,20 +103,14 @@ async function getPlayerRank(mode, playerName, score, time) {
             })
         });
         
-        // ✅ DEBUG: Ver respuesta del servidor
-        console.log('📥 Server response status:', response.status);
-        const responseText = await response.text();
-        console.log('📥 Server response:', responseText);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${responseText}`);
-        }
-        
-        const result = JSON.parse(responseText);
+        const result = await response.json();
+        console.log('✅ Rank received:', result.rank);
         return result.rank || 1;
     } catch (error) {
         console.error('Error getting rank:', error);
-        return 1; // Fallback
+        return 1;
     }
 }
 
@@ -195,7 +153,6 @@ function createModeTabs() {
 }
 
 // Función para mostrar scores en container específico
-// Función para mostrar scores en container específico
 function displayScoresInContainer(scores, container) {
     if (!container) {
         console.error('❌ Scores container not found!');
@@ -209,7 +166,7 @@ function displayScoresInContainer(scores, container) {
         return;
     }
     
-    // ✅ NUEVA ESTRUCTURA: Tabla en lugar de divs
+    // ✅ NUEVA ESTRUCTURA: Tabla profesional
     let html = `
         <div class="leaderboard-table">
             <div class="table-header">
@@ -221,10 +178,7 @@ function displayScoresInContainer(scores, container) {
             <div class="table-body">
     `;
     
-    // Eliminar duplicados (por si acaso)
-    const uniqueScores = removeDuplicateScores(scores);
-    
-    uniqueScores.forEach((score, index) => {
+    scores.forEach((score, index) => {
         const rank = index + 1;
         const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `#${rank}`;
         
@@ -249,18 +203,6 @@ function displayScoresInContainer(scores, container) {
     container.innerHTML = html;
 }
 
-// ✅ NUEVA FUNCIÓN: Eliminar scores duplicados
-function removeDuplicateScores(scores) {
-    const seen = new Set();
-    return scores.filter(score => {
-        const key = `${score.player_name}-${score.score}-${score.time_seconds}`;
-        if (seen.has(key)) {
-            return false;
-        }
-        seen.add(key);
-        return true;
-    });
-}
 // Función para cargar y mostrar scores
 async function loadAndDisplayScores(mode = 'general-culture') {
     try {
@@ -309,7 +251,6 @@ function renderLeaderboard() {
 // Hacer funciones disponibles globalmente
 if (typeof window !== 'undefined') {
     window.savePlayerScore = savePlayerScore;
-    window.saveToLocalStorage = saveToLocalStorage;
     window.loadAndDisplayScores = loadAndDisplayScores;
     window.renderLeaderboard = renderLeaderboard;
     window.getPlayerRank = getPlayerRank;

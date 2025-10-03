@@ -5,12 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "npm rebuild sqlite3 --build-from-source",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "npm install"
   },
   "dependencies": {
     "express": "^4.18.2",
-    "sqlite3": "^5.1.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1"
   },
@@ -22,8 +21,7 @@
     "game", 
     "education", 
     "javascript", 
-    "nodejs",
-    "sqlite"
+    "nodejs"
   ],
   "author": "Santiago Anacona",
   "license": "MIT",
