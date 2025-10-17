@@ -7,7 +7,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
 </head>
+
 <body>
+
+    <!-- Botón flotante de ayuda -->
+<button id="helpBtn" class="help-btn">?</button>
+
+<!-- Panel de ayuda -->
+<div id="helpPanel" class="help-panel">
+  <div class="help-header">
+    <h3>Ayuda del cuestionario</h3>
+    <button id="closeHelp">&times;</button>
+  </div>
+
+  <div class="help-content">
+    <p><strong>Reglas básicas:</strong></p>
+    <ul>
+      <li>There are a total of three levels.</li>
+      <li>Each level has 20 questions.</li>
+      <li>Only one answer is correct.</li>
+      <li>Once you select an answer, you can’t change it.</li>
+      <li>The difficulty increases as you answer the questions.</li>
+      <li>Each section includes Easy, Medium, and Hard levels.</li>
+      <li>You earn different points depending on the difficulty.</li>
+      <li>When you finish a level, you must save your total score — you can’t retake the quiz.</li>
+    
+    </ul>
+
+    <div class="video-container">
+      <video 
+        src="./videos/VideoExplicativo.mp4" 
+        title="Video explicativo" 
+        allowfullscreen
+        controls>
+      </video>
+    </div>
+  </div>
+</div>
+
+
+
+
     <div class="app">
         <div class="shell">
 

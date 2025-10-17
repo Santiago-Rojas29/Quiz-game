@@ -402,3 +402,165 @@ input[type=text]:focus {
 .table-body::-webkit-scrollbar-thumb:hover {
     background: #00cc7a;
 }
+
+
+
+
+/* ==== BOTÓN DE AYUDA ==== */
+.help-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #222;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 150, 0.4);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.help-btn:hover {
+  background: #00ff9a;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 150, 0.7);
+}
+
+/* ================================================= */
+/* CONTENEDOR PRINCIPAL DEL PANEL           */
+/* ================================================= */
+.help-panel {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 380px; /* Ancho fijo para el panel */
+  max-width: 90vw; /* Responsividad: No más del 90% del ancho de la ventana */
+  
+  /* Estilos de apariencia */
+  background: #111;
+  color: #eee;
+  border: 1px solid #00ff9a33;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 150, 0.15);
+  padding: 20px;
+  box-sizing: border-box; /* Incluye padding y border en el width/height */
+  
+  /* Gestión de Contenido Largo (Reglas) */
+  max-height: calc(100vh - 100px); /* Ocupa casi toda la altura visible */
+  overflow-y: auto; /* Permite scroll vertical si el contenido es muy largo */
+  overflow-x: hidden; /* Evita scroll horizontal */
+  
+  /* Estado y Apilamiento */
+  display: none;
+  z-index: 9998;
+}
+
+.help-panel.active {
+  display: block;
+  animation: slideIn 0.3s ease forwards; /* 'forwards' mantiene el estado final de la animación */
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================================= */
+/* ENCABEZADO Y CIERRE                  */
+/* ================================================= */
+.help-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px; /* Más espacio debajo del encabezado */
+  padding-bottom: 5px; 
+  border-bottom: 1px solid #00ff9a1a; /* Línea separadora sutil */
+}
+
+.help-header h3 {
+  font-size: 20px;
+  color: #00ff9a;
+  margin: 0;
+}
+
+.help-header button {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 24px; 
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.help-header button:hover {
+  color: #00ff9a;
+  transform: scale(1.1);
+}
+
+/* ================================================= */
+/* CONTENIDO (REGLAS)              */
+/* ================================================= */
+.help-content ul {
+  margin: 10px 0 20px 20px;
+  list-style: disc;
+  color: #ccc;
+  line-height: 1.6; /* Espaciado entre líneas para mejor lectura */
+  padding-right: 10px; /* Margen para cuando hay scrollbar */
+}
+
+/* ================================================= */
+/* MANEJO DE VIDEO               */
+/* ================================================= */
+
+/* Contenedor para videos embebidos (YouTube/Vimeo) usando IFRAME */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Relación de aspecto 16:9 para mantener la proporción */
+  height: 300px;
+  border-radius: 8px; 
+  overflow: hidden;
+  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(0, 255, 150, 0.2);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* SOLUCIÓN PARA VIDEOS DIRECTOS (ELEMENTO <video>) */
+.help-panel video {
+  width: 100%; /* Ocupa todo el ancho del panel */
+  height: auto; /* La altura se ajusta para mantener la proporción */
+  max-height: 280px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 255, 150, 0.2);
+  display: block; 
+  
+  /* SOLUCIÓN AL PROBLEMA DE DESPROPORCIÓN */
+  object-fit: contain; 
+  /* 'contain' asegura que el video se muestre completo y sin estirar,
+     añadiendo bandas negras si las proporciones no coinciden. */
+}
+
+/* ================================================= */
+/* RESPONSIVIDAD                 */
+/* ================================================= */
+@media (max-width: 600px) {
+  .help-panel {
+    right: 10px;
+    width: calc(100% - 40px); /* Ocupa casi todo el ancho en móviles */
+    top: 50px; /* Ajusta la posición superior en móviles */
+    max-height: calc(100vh - 70px);
+  }
+}
