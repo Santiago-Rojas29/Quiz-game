@@ -402,3 +402,118 @@ input[type=text]:focus {
 .table-body::-webkit-scrollbar-thumb:hover {
     background: #00cc7a;
 }
+
+
+
+
+/* ==== BOTÓN DE AYUDA ==== */
+.help-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #222;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 150, 0.4);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.help-btn:hover {
+  background: #00ff9a;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 150, 0.7);
+}
+
+/* ==== PANEL DE AYUDA ==== */
+.help-panel {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 360px;
+  background: #111;
+  color: #eee;
+  border: 1px solid #00ff9a33;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 150, 0.15);
+  padding: 20px;
+  display: none;
+  z-index: 9998;
+}
+
+.help-panel.active {
+  display: block;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.help-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.help-header h3 {
+  font-size: 18px;
+  color: #00ff9a;
+}
+
+.help-header button {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.help-header button:hover {
+  color: #00ff9a;
+}
+
+.help-content ul {
+  margin: 10px 0 20px 20px;
+  list-style: disc;
+  color: #ccc;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.help-panel video {
+  width: 100%;
+  height: auto;
+  max-height: 300px; /* ajusta según el tamaño que quieras */
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.help-panel {
+  width: 380px;
+  max-height: 600px;
+}
