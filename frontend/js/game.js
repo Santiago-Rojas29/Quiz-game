@@ -366,3 +366,31 @@ if (typeof window !== 'undefined') {
     window.completeResetGameState = completeResetGameState;
     window.calculateMaxPossibleScore = calculateMaxPossibleScore;
 }}
+
+
+
+
+// boton de de reglas y del video explicativo 
+
+
+
+const helpBtn = document.getElementById('helpBtn');
+const helpPanel = document.getElementById('helpPanel');
+const closeHelp = document.getElementById('closeHelp');
+
+helpBtn.addEventListener('click', () => {
+  helpPanel.classList.toggle('active');
+});
+
+closeHelp.addEventListener('click', () => {
+  helpPanel.classList.remove('active');
+});
+
+// Cerrar si se hace clic fuera del panel
+document.addEventListener('click', (e) => {
+  if (!helpPanel.contains(e.target) && !helpBtn.contains(e.target)) {
+    helpPanel.classList.remove('active');
+  }
+});
+
+
